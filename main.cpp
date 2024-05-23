@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include "Player.h"
+#include "CreateBackground.h"
 
 using namespace  sf;
 
@@ -52,6 +53,12 @@ int main() {
     // The boundaries of the arena
     IntRect arena;
 
+    // Create the background
+    VertexArray background;
+
+    // Load the texture for our background vertex array
+    Texture textureBackground;
+    textureBackground.loadFromFile("graphics/background_sheet.png");
 
     // The main game loop
     while (window.isOpen()) {
@@ -160,7 +167,10 @@ int main() {
                 arena.height = 500;
                 arena.left = 0;
                 arena.top = 0;
-                int tileSize = 50;
+
+                // Pass the vertex array by reference to the createBackground function
+                int tileSize = createBackground(background, arena);
+//                int tileSize = 50;
 
                 // Spawn the player in the middle of the arena
                 player.spawn(arena, resolution, tileSize);
@@ -215,6 +225,9 @@ int main() {
 
             // set the mainView to be displayed in the window AND draw everything related to it
             window.setView(mainView);
+
+            // Draw the background. To draw a vertex array with a texture, pass it directly to the draw function
+            window.draw(background, &textureBackground);
 
             // Draw the player
             window.draw(player.getSprite());

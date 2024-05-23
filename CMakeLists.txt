@@ -5,7 +5,9 @@ set(CMAKE_CXX_STANDARD 17)
 
 add_executable(ZombieGame main.cpp
         Player.cpp
-        Player.h)
+        Player.h
+        CreateBackground.cpp
+        CreateBackground.h)
 include_directories(/usr/local/include)
 
 find_package(SFML 2.6.1 COMPONENTS system window graphics network audio REQUIRED)

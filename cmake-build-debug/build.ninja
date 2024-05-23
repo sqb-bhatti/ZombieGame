@@ -63,6 +63,13 @@ build CMakeFiles/ZombieGame.dir/Player.cpp.o: CXX_COMPILER__ZombieGame_unscanned
   OBJECT_DIR = CMakeFiles/ZombieGame.dir
   OBJECT_FILE_DIR = CMakeFiles/ZombieGame.dir
 
+build CMakeFiles/ZombieGame.dir/CreateBackground.cpp.o: CXX_COMPILER__ZombieGame_unscanned_Debug /Users/saqibbhatti/Documents/Repos/SFML/ZombieGame/CreateBackground.cpp || cmake_object_order_depends_target_ZombieGame
+  DEP_FILE = CMakeFiles/ZombieGame.dir/CreateBackground.cpp.o.d
+  FLAGS = -g -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk -fcolor-diagnostics
+  INCLUDES = -I/usr/local/include -isystem /opt/homebrew/include
+  OBJECT_DIR = CMakeFiles/ZombieGame.dir
+  OBJECT_FILE_DIR = CMakeFiles/ZombieGame.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target ZombieGame
@@ -71,7 +78,7 @@ build CMakeFiles/ZombieGame.dir/Player.cpp.o: CXX_COMPILER__ZombieGame_unscanned
 #############################################
 # Link the executable ZombieGame
 
-build ZombieGame: CXX_EXECUTABLE_LINKER__ZombieGame_Debug CMakeFiles/ZombieGame.dir/main.cpp.o CMakeFiles/ZombieGame.dir/Player.cpp.o | /opt/homebrew/lib/libsfml-graphics.2.6.1.dylib /opt/homebrew/lib/libsfml-audio.2.6.1.dylib /opt/homebrew/lib/libsfml-network.2.6.1.dylib /opt/homebrew/lib/libsfml-window.2.6.1.dylib /opt/homebrew/lib/libsfml-system.2.6.1.dylib
+build ZombieGame: CXX_EXECUTABLE_LINKER__ZombieGame_Debug CMakeFiles/ZombieGame.dir/main.cpp.o CMakeFiles/ZombieGame.dir/Player.cpp.o CMakeFiles/ZombieGame.dir/CreateBackground.cpp.o | /opt/homebrew/lib/libsfml-graphics.2.6.1.dylib /opt/homebrew/lib/libsfml-audio.2.6.1.dylib /opt/homebrew/lib/libsfml-network.2.6.1.dylib /opt/homebrew/lib/libsfml-window.2.6.1.dylib /opt/homebrew/lib/libsfml-system.2.6.1.dylib
   FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk
   LINK_LIBRARIES = -Wl,-rpath,/opt/homebrew/lib  /opt/homebrew/lib/libsfml-graphics.2.6.1.dylib  /opt/homebrew/lib/libsfml-audio.2.6.1.dylib  /opt/homebrew/lib/libsfml-network.2.6.1.dylib  /opt/homebrew/lib/libsfml-window.2.6.1.dylib  /opt/homebrew/lib/libsfml-system.2.6.1.dylib
   OBJECT_DIR = CMakeFiles/ZombieGame.dir
