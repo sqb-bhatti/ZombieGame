@@ -27,12 +27,12 @@ int main() {
 //    RenderWindow window(VideoMode(resolution.x, resolution.y), "Zombie Game", Style::Fullscreen);
 
     // Create a video mode object
-    VideoMode vm(1920, 1080);
+    VideoMode vm(resolution.x, resolution.y);
 
     // Create and open a window for the game
     RenderWindow window(vm, "Zombie Game");
 
-    // Create a an SFML View for the main action
+    // Create an SFML View for the main action
     View mainView(FloatRect(0, 0, resolution.x, resolution.y));
 
 

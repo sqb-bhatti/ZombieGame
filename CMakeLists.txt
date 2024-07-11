@@ -7,7 +7,11 @@ add_executable(ZombieGame main.cpp
         Player.cpp
         Player.h
         CreateBackground.cpp
-        CreateBackground.h)
+        CreateBackground.h
+        TextureHolder.cpp
+        TextureHolder.h
+        Zombie.cpp
+        Zombie.h)
 include_directories(/usr/local/include)
 
 find_package(SFML 2.6.1 COMPONENTS system window graphics network audio REQUIRED)

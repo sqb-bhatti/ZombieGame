@@ -10,7 +10,6 @@ Player::Player() {
     m_Health = START_HEALTH;
     m_MaxHealth = START_HEALTH;
 
-    // Associate a texture with the sprite
     m_Texture.loadFromFile("graphics/player.png");
     m_Sprite.setTexture(m_Texture);
 
@@ -20,8 +19,7 @@ Player::Player() {
 
 
 
-// This function does what its name suggests. It will prepare the object ready for use, which includes putting it in
-// its starting location (that is, spawning it). It receives an IntRect instance called arena, which will be the size
+// This function receives an IntRect instance called arena, which will be the size
 // and location of the current level; a Vector2f instance, which will contain the screen resolution; and an int, which
 // will hold the size of a background tile
 void Player::spawn(IntRect arena, Vector2f resolution, int tileSize) {
@@ -44,8 +42,7 @@ void Player::spawn(IntRect arena, Vector2f resolution, int tileSize) {
 }
 
 
-// // Call this at the end of every game. When the player dies, we will use this to reset any upgrades they might
-// have used.
+//  When the player dies, we will use this to reset any upgrades they might have used.
 void Player::resetPlayerStats() {
     m_Speed = START_SPEED;
     m_Health = START_HEALTH;

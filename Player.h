@@ -28,10 +28,9 @@ private:
     // Screen resolution
     Vector2f m_Resolution;
 
-    // What size is the current arena
+    // size of the current arena
     IntRect m_Arena;
 
-    // How big is each tile of the arena
     int m_TileSize;
 
     // Which direction(s) is the player currently moving in
@@ -40,13 +39,12 @@ private:
     bool m_LeftPressed;
     bool m_RightPressed;
 
-    // How much health has the player got?
+    // player's health
     int m_Health;
 
-    // What is the maximum health the player can have
+    // player's maximum health
     int m_MaxHealth;
 
-    // When was the player last hit
     Time m_LastHit; // for recording the time that the player last received a hit from a zombie.
 
     // Speed in pixels per second
@@ -56,7 +54,7 @@ public:
     Player();
     void spawn(IntRect arena, Vector2f resolution, int tileSize);
 
-    // Call this at the end of every game
+    // Call at the end of every game
     void resetPlayerStats();
 
     // Handle the player getting hit by a zombie
@@ -74,7 +72,6 @@ public:
     // What angle is the player facing
     float getRotation();
 
-    // Send a copy of the sprite to the main function
     Sprite getSprite();
 
     // The next four functions move the player
