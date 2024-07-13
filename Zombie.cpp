@@ -39,7 +39,7 @@ void Zombie::spawn(float startX, float startY, int type, int seed) {
     float modifier = (rand() % MAX_VARRIANCE) + OFFSET;
 
     // Express this as a fraction of 1
-    modifier /= 100;
+    modifier /= 100;  // Now equals between .7 and 1
     m_Speed *= modifier;
 
     // Initialize its location
@@ -80,6 +80,7 @@ bool Zombie::isAlive() {
 
 FloatRect Zombie::getPosition() {
     return m_Sprite.getGlobalBounds();
+//    return m_Sprite.getLocalBounds();
 }
 
 
@@ -93,7 +94,8 @@ void Zombie::update(float elapsedTime, Vector2f playerLocation) {
     float playerX = playerLocation.x;
     float playerY = playerLocation.y;
 
-    // Update the zombie position variables
+    // Update the zombie position variables. 4 if statements to see whether the zombie is to the left,
+    //right, above, or below the current player's position.
     if (playerX > m_Position.x) {
         m_Position.x = m_Position.x + m_Speed * elapsedTime;
     }

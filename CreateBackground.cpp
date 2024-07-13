@@ -11,15 +11,14 @@ int createBackground(VertexArray& rVA, IntRect arena) {
     const int TILE_TYPES = 3;
     const int VERTS_IN_QUAD = 4;  // fact that there are four vertices in every quad.
 
-    // width and height of the world in the number of tiles, not pixels. The worldWidth and worldHeight variables are
-    // initialized by dividing the height and width of the passed-in arena by the TILE_SIZE constant.
+    // width and height of the world in the number of tiles, not pixels.
     int worldWidth = arena.width / TILE_SIZE;
     int worldHeight = arena.height / TILE_SIZE;
 
     // Primitive are we using?
     rVA.setPrimitiveType(Quads);
 
-    // Set the size of the vertex array
+    // Size of the vertex array
     rVA.resize(worldWidth * worldHeight * VERTS_IN_QUAD);
 
     // Start at the beginning of the vertex array. Will use currentVertex as we loop through the vertex array,
@@ -41,6 +40,7 @@ int createBackground(VertexArray& rVA, IntRect arena) {
             // Define the position in the Texture for current quad. The condition checks whether the current quad is
             // either one of the very first or the very last quads in the arena. If it is (one of the first or last),
             // then this means it is part of the boundary.
+
             if (h == 0 || h == worldHeight-1 || w == 0 || w == worldWidth-1) {
                 // Use the wall texture
                 rVA[currentVertex + 0].texCoords = Vector2f(0, 0 + TILE_TYPES * TILE_SIZE);

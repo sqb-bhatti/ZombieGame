@@ -28,6 +28,7 @@ private:
     const int MAX_VARRIANCE = 30;
     const int OFFSET = 101 - MAX_VARRIANCE;
 
+    // zombie position
     Vector2f m_Position;
     Sprite m_Sprite;
     float m_Speed;

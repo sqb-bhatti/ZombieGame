@@ -11,7 +11,9 @@ add_executable(ZombieGame main.cpp
         TextureHolder.cpp
         TextureHolder.h
         Zombie.cpp
-        Zombie.h)
+        Zombie.h
+        CreateHorde.cpp
+)
 include_directories(/usr/local/include)
 
 find_package(SFML 2.6.1 COMPONENTS system window graphics network audio REQUIRED)

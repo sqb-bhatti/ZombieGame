@@ -23,12 +23,12 @@ Texture& TextureHolder:: GetTexture(string const& filename) {
     // Create an iterator to search for the required key value pair using the passed in file name
     auto keyValuePair = m.find(filename);
 
-    // // Did we find a match?
+    // Did we find a match?
     if (keyValuePair != m.end()) {
         return keyValuePair->second;
     }
     else {
-        // File name not found. // Create a new key value pair using the filename
+        // File name not found. Create a new key value pair using the filename
         auto& texture = m[filename];
 
         // Load the texture from file in the usual way

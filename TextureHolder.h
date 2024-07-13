@@ -16,8 +16,8 @@ using namespace std;
 
 class TextureHolder {
 private:
-    // A map container from the STL, that holds related pairs of String and Texture
-    map< string, Texture> m_Textures;
+    // A map container that holds related pairs of String and Texture
+    map<string, Texture> m_Textures;
 
     static TextureHolder* m_s_Instance;
 
