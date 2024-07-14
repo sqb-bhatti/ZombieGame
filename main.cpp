@@ -5,6 +5,7 @@
 #include "Player.h"
 #include "CreateBackground.h"
 #include "TextureHolder.h"
+#include "Bullet.h"
 
 using namespace  sf;
 
@@ -17,6 +18,9 @@ enum class State { PAUSED,
 
 
 int main() {
+    // Here is the instance of TextureHolder
+    TextureHolder holder;
+
     // Start with the GAME_OVER state
     State state = State::GAME_OVER;
 
@@ -58,17 +62,24 @@ int main() {
     // Create the background
     VertexArray background;
 
-    // Load the texture for our background vertex array
-    Texture textureBackground;
-    textureBackground.loadFromFile("graphics/background_sheet.png");
-
-
-    TextureHolder holder;
+    // Load the texture for our background
+    Texture textureBackground = TextureHolder::GetTexture("graphics/background_sheet.png");
 
 
     int numZombies;
     int numZombiesAlive;
     Zombie* zombies = nullptr;
+
+
+    Bullet bullets[100];
+    int currentBullet = 0;
+    int bulletsSpare = 24;
+    int bulletsInClip = 6;
+    int clipSize = 6;
+    float fireRate = 1;
+
+    // When was the fire button last pressed?
+    Time lastPressed;
 
 
     // The main game loop
@@ -187,7 +198,7 @@ int main() {
                 player.spawn(arena, resolution, tileSize);
 
                 // Create a horde of zombies
-                numZombies = 50;
+                numZombies = 40;
 
                 // Delete the previously allocated memory (if it exists)
                 delete[] zombies;

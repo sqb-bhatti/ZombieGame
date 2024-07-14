@@ -13,6 +13,8 @@ add_executable(ZombieGame main.cpp
         Zombie.cpp
         Zombie.h
         CreateHorde.cpp
+        Bullet.cpp
+        Bullet.h
 )
 include_directories(/usr/local/include)
 
