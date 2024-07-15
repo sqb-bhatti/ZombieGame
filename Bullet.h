@@ -18,6 +18,7 @@ private:
 
     // each bullet looks like
     RectangleShape m_BulletShape;
+    Sprite m_BulletSprite;
 
     // Is this bullet currently whizzing through the air. This will allow us to decide
     //whether we need to call its update function each frame and whether we need to run

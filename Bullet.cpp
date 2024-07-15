@@ -3,10 +3,12 @@
 //
 
 #include "Bullet.h"
+#include "TextureHolder.h"
 
 
 Bullet::Bullet() {
     m_BulletShape.setSize(Vector2f(2, 2));
+//    m_BulletSprite = Sprite(TextureHolder::GetTexture("graphics/bullet.png"));
 }
 
 
