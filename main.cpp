@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <sstream>
+#include <fstream>
 #include "Player.h"
 #include "CreateBackground.h"
 #include "TextureHolder.h"
@@ -169,6 +170,14 @@ int main() {
     scoreText.setFillColor(Color::White);
     scoreText.setPosition(20, 0);
 
+    // Load the high score from a text file
+    ifstream inputFile("gamedata/scores.txt");
+    if (inputFile.is_open()) {
+        // >> Reads the data
+        inputFile >> hiScore;
+        inputFile.close();
+    }
+
     // Hi Score
     Text hiScoreText;
     hiScoreText.setFont(font);
@@ -243,6 +252,18 @@ int main() {
                 // displayed.
                 else if (event.key.code == Keyboard::Return && state == State::GAME_OVER) {
                     state = State::LEVELING_UP;
+                    wave = 0;
+                    score = 0;
+
+                    // Prepare the gun and ammo for next game
+                    currentBullet = 0;
+                    bulletsSpare = 24;
+                    bulletsInClip = 6;
+                    clipSize = 6;
+                    fireRate = 1;
+
+                    // Reset the player's stats
+                    player.resetPlayerStats();
                 }
 
                 if (state == State::PLAYING) {
@@ -321,33 +342,48 @@ int main() {
             // Handle the player LEVELING up.
             // handle the keyboard keys 1, 2, 3, 4, 5, and 6.
             if (event.key.code == Keyboard::Num1) {
+                // Increase fire rate
+                fireRate++;
                 state = State::PLAYING;
             }
 
             if (event.key.code == Keyboard::Num2) {
+                // Increase clip size
+                clipSize += clipSize;
                 state = State::PLAYING;
             }
 
             if (event.key.code == Keyboard::Num3) {
+                // Increase health
+                player.upgradeHealth();
                 state = State::PLAYING;
             }
 
             if (event.key.code == Keyboard::Num4) {
+                // Increase speed
+                player.upgradeSpeed();
                 state = State::PLAYING;
             }
 
             if (event.key.code == Keyboard::Num5) {
+                // Upgrade pickup
+                healthPickup.upgrade();
                 state = State::PLAYING;
             }
 
             if (event.key.code == Keyboard::Num6) {
+                // Upgrade pickup
+                ammoPickup.upgrade();
                 state = State::PLAYING;
             }
 
             if (state == State::PLAYING) {
+                // Increase the wave number
+                wave++;
+
                 // Prepare the level
-                arena.width = 1000;
-                arena.height = 1000;
+                arena.width = 500 * wave;
+                arena.height = 500 * wave;
                 arena.left = 0;
                 arena.top = 0;
 
@@ -363,7 +399,7 @@ int main() {
                 ammoPickup.setArena(arena);
 
                 // Create a horde of zombies
-                numZombies = 20;
+                numZombies = 5 * wave;
 
                 // Delete the previously allocated memory (if it exists)
                 delete[] zombies;
@@ -471,6 +507,11 @@ int main() {
 
                     if (player.getHealth() <= 0) {
                         state = State::GAME_OVER;
+
+                        ofstream outputFile("gamedata/scores.txt");
+                        // << writes the data
+                        outputFile << hiScore;
+                        outputFile.close();
                     }
                 }
             }
