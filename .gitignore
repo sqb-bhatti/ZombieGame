@@ -16,3 +16,5 @@ ZV/x64/
 *.idb
 
 build/
+/.idea/vcs.xml
+/cmake-build-debug/
